@@ -1,0 +1,26 @@
+services:
+  # The Source Database
+  publisher:
+    image: postgres:16.1
+    container_name: pg_publisher
+    environment:
+      POSTGRES_USER: billing_primary
+      POSTGRES_PASSWORD: primarypassword
+      POSTGRES_DB: billing_primary
+    ports:
+      - "5432:5432"
+    # Essential for logical replication
+    command: postgres -c wal_level=logical
+
+  # The Destination Database
+  subscriber:
+    image: postgres:16.1
+    container_name: pg_subscriber
+    environment:
+      POSTGRES_USER: billing_replica
+      POSTGRES_PASSWORD: replicapassword
+      POSTGRES_DB: billing_replica
+    ports:
+      - "5433:5432"
+    depends_on:
+      - publisher
