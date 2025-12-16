@@ -1,9 +1,49 @@
+#services:
+#  postgres:
+#    image: 'postgres:latest'
+#    environment:
+#      - 'POSTGRES_DB=mydatabase'
+#      - 'POSTGRES_PASSWORD=secret'
+#      - 'POSTGRES_USER=myuser'
+#    ports:
+#      - '5432'
+
 services:
-  postgres:
-    image: 'postgres:latest'
+  # The Source Database
+  publisher:
+    image: postgres:16.1
+    container_name: pg_publisher
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_USER: billing_primary
+      POSTGRES_PASSWORD: primarypassword
+      POSTGRES_DB: billing_primary
     ports:
-      - '5432'
+      - "5432:5432"
+    # Essential for logical replication
+    command: postgres -c wal_level=logical
+
+  # Replica 1
+  subscriber_1:
+    image: postgres:16.1
+    container_name: pg_subscriber_1
+    environment:
+      POSTGRES_USER: billing_replica_1
+      POSTGRES_PASSWORD: replicapassword
+      POSTGRES_DB: billing_replica_1
+    ports:
+      - "5433:5432"
+    depends_on:
+      - publisher
+
+  # Replica 2
+  subscriber_2:
+    image: postgres:16.1
+    container_name: pg_subscriber_2
+    environment:
+      POSTGRES_USER: billing_replica_2
+      POSTGRES_PASSWORD: replicapassword
+      POSTGRES_DB: billing_replica_2
+    ports:
+      - "5434:5432"
+    depends_on:
+      - publisher

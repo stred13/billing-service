@@ -1,42 +1,42 @@
 package com.lut.billingservice.model;
 
+import com.lut.billingservice.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-import java.util.UUID;
+import java.time.LocalDateTime;
 
-@Entity
 @Data
+@Entity
+@NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
-public class Plan {
+public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String planId;
+    private String orgId;
 
     @Column
-    private String planName;
+    private String orgName;
 
     @Column
-    private Boolean billable;
+    private LocalDateTime createdTime;
 
     @Column
-    private Integer minUsagePeriod;
+    private LocalDateTime deletedTime;
 
     @Column
-    private Integer trialPeriod;
+    private Status status;
 
     @ManyToOne
-    private Service service;
+    private CloudProject cloudProject;
 
-    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL)
-    private List<Variant> variants;
+    @Column
+    private String region;
 }

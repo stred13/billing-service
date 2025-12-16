@@ -1,6 +1,7 @@
 package com.lut.billingservice.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,37 +10,39 @@ import lombok.NoArgsConstructor;
 @Entity
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Variant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long variant_id;
+    private Long id;
 
     @Column
-    private String variant_name;
+    private String variantId;
 
     @Column
-    private String charge_type;
+    private String variantName;
 
     @Column
-    private Integer min_usage_period;
+    private String chargeType;
 
     @Column
-    private Double variant_price;
+    private Integer minUsagePeriod;
 
     @Column
-    private Double ratio;
+    private Double variantPrice;
 
-    private Integer trial_period;
+    @Column
+    private Float ratio;
+
+    @Column
+    private Integer trialPeriod;
 
     @ManyToOne
-    @JoinColumn(name = "plan_id")
     private Plan plan;
 
     @ManyToOne
-    @JoinColumn(name = "calculation_method") // Maps to FK column
-    private CalculationMethod calculation_method;
+    private CalculationMethod calculationMethod;
 
     @ManyToOne
-    @JoinColumn(name = "measurement_unit") // Maps to FK column
-    private MeasurementUnit measurement_unit;
+    private MeasurementUnit measurementUnit;
 }
