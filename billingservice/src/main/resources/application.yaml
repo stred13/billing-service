@@ -1,3 +1,12 @@
 spring:
   application:
-    name: billingservice
+    name: billing-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/billing_primary?useSSL=false&serverTimezone=UTC
+    username: billing_primary
+    password: primarypassword
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
