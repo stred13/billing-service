@@ -19,7 +19,7 @@ import java.util.UUID;
 public class CloudProject {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID cloudProjectId;
+    private UUID id;
 
     @Column
     private String cloudProjectName;
@@ -37,6 +37,7 @@ public class CloudProject {
     private LocalDateTime deletedTime;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @OneToMany(mappedBy = "cloudProject")

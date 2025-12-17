@@ -18,7 +18,7 @@ import java.util.UUID;
 public class SubscriptionUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID subscriptionUnitId;
+    private UUID id;
 
     @ManyToOne
     private Invoice invoice;

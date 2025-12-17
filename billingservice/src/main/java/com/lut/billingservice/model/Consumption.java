@@ -19,33 +19,24 @@ import java.util.UUID;
 public class Consumption {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID consumptionId;
+    private UUID id;
 
     @Column
-    private LocalDateTime startTime;
-
-    @Column
-    private LocalDateTime endTime;
-
-    @Column
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    private String orgId;
+
+    private String planId;
+    private String serviceId;
+    private String subscriptionId;
+
+    private LocalDateTime startConsumption;
+    private LocalDateTime endConsumption;
+
+    @OneToMany(mappedBy = "consumption")
+    private List<Measure>  measures;
 
     @ManyToOne
     private MetricDocument metricDocument;
-
-    // Relationships inferred from ID columns in diagram
-    @ManyToOne
-    private Organization organization;
-
-    @ManyToOne
-    private Service service;
-
-    @ManyToOne
-    private Plan plan;
-
-    @ManyToOne
-    private Subscription subscription;
-
-    @OneToMany(mappedBy = "consumption", cascade = CascadeType.ALL)
-    private List<Measure> measures;
 }

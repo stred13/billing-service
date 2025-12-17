@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
@@ -17,16 +18,15 @@ import java.util.UUID;
 public class Measure {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID measureId;
+    private UUID id;
 
     @Column
-    private Integer quantity;
-
-    @Column
+    @Enumerated(EnumType.STRING)
     private Status status;
 
-    @ManyToOne
-    private Variant variant;
+    private Double quantity;
+
+    private String variantId;
 
     @ManyToOne
     private Consumption consumption;

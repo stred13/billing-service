@@ -18,9 +18,10 @@ import java.util.UUID;
 public class SubscriptionEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID subscriptionEventId;
+    private UUID id;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private EventType eventType;
 
     @Column

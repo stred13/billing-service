@@ -1,5 +1,6 @@
 package com.lut.billingservice.model;
 
+import com.lut.billingservice.enums.Placement;
 import com.lut.billingservice.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,18 +20,17 @@ import java.util.UUID;
 public class MetricDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID metricDocumentId;
-
-    @Column
-    private LocalDateTime createdTime;
+    private UUID id;
 
     @Column
     private LocalDateTime collectedTime;
 
     @Column
-    private String placement;
+    @Enumerated(EnumType.STRING)
+    private Placement placement;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column

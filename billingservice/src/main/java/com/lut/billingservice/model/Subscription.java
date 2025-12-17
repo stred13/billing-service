@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -17,11 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Subscription {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column
-    private String subscriptionId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     @Column
     private LocalDateTime createdTime;
@@ -30,19 +28,17 @@ public class Subscription {
     private LocalDateTime terminatedAt;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Placement placement;
 
     @Column
     private Integer quantity;
 
-    @ManyToOne
-    private Organization organization;
+    private String organizationId;
 
-    @ManyToOne
-    private Service service;
+    private String serviceId;
 
-    @ManyToOne
-    private Plan plan;
+    private String planId;
 
     @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL)
     private List<SubscriptionEvent> events;
