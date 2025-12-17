@@ -51,4 +51,18 @@ public class Plan {
         this.variants.remove(variant);
         variant.setPlan(null);
     }
+
+    public void addVariants(List<Variant> variantList){
+        for(Variant variant : variantList){
+            this.variants.add(variant);
+            variant.setPlan(this);
+        }
+    }
+
+    public void removeVariants(List<Variant> variantList){
+        for(Variant variant : variantList){
+            this.variants.remove(variant);
+            variant.setPlan(null);
+        }
+    }
 }

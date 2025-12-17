@@ -4,7 +4,7 @@ spring:
   application:
     name: billing-service
   datasource:
-    url: jdbc:postgresql://localhost:5433/billing_replica_2?useSSL=false&serverTimezone=UTC
+    url: jdbc:postgresql://localhost:5434/billing_replica_2?useSSL=false&serverTimezone=UTC
     username: billing_replica_2
     password: replicapassword
   jpa:
@@ -12,3 +12,5 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  liquibase:
+    enabled: false

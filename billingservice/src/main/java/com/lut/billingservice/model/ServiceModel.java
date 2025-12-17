@@ -51,4 +51,18 @@ public class ServiceModel {
         plans.remove(plan);
         plan.setService(null);
     }
+
+    public void addPlans(List<Plan> planList){
+        for(Plan plan : planList){
+            this.plans.add(plan);
+            plan.setService(this);
+        }
+    }
+
+    public void removePlans(List<Plan> planList){
+        for(Plan plan : planList){
+            this.plans.remove(plan);
+            plan.setService(null);
+        }
+    }
 }
