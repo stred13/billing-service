@@ -1,9 +1,13 @@
 package com.lut.billingservice.service;
 
+import com.lut.billingservice.dto.PlanDTO;
 import com.lut.billingservice.dto.PricingModelDTO;
 import com.lut.billingservice.dto.ServiceRequestDTO;
+import com.lut.billingservice.dto.VariantDTO;
+import com.lut.billingservice.enums.Placement;
 import com.lut.billingservice.model.Plan;
 import com.lut.billingservice.model.ServiceModel;
+import com.lut.billingservice.model.ServiceModelId;
 import com.lut.billingservice.model.Variant;
 import com.lut.billingservice.repository.PlanRepository;
 import com.lut.billingservice.repository.ServiceReporsitory;
@@ -12,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -40,7 +45,9 @@ public class PricingModelService {
      * @param serviceId the UUID of the service to be deleted
      */
     public void deleteServiceById(UUID serviceId) {
-        serviceReporsitory.deleteById(serviceId);
+        Placement p = serviceReporsitory.findServiceModelById(serviceId).orElseThrow(() -> new RuntimeException("Service not found")).getPlacement();
+
+        serviceReporsitory.deleteById(new ServiceModelId(serviceId,p));
     }
 
     /**
@@ -68,7 +75,7 @@ public class PricingModelService {
      * @return the ServiceModel entity if found, otherwise null
      */
     public ServiceModel getServiceById(UUID serviceId) {
-        return serviceReporsitory.findById(serviceId).orElse(null);
+        return serviceReporsitory.findServiceModelById(serviceId).orElse(null);
     }
 
     /**
@@ -99,13 +106,48 @@ public class PricingModelService {
      * @return the updated ServiceModel entity
      */
     public ServiceModel updateService(UUID serviceId,ServiceRequestDTO serviceRequestDTO) {
-        ServiceModel serviceModel = serviceReporsitory.findById(serviceId).orElseThrow(() -> new RuntimeException("Service not found"));
+        ServiceModel serviceModel = serviceReporsitory.findServiceModelById(serviceId).orElseThrow(() -> new RuntimeException("Service not found"));
         serviceModel.setServiceName(serviceRequestDTO.getServiceName());
         serviceModel.setLegalEntity(serviceRequestDTO.getLegalEntity());
         serviceModel.setCostCenter(serviceRequestDTO.getCostCenter());
         serviceModel.setBillable(serviceRequestDTO.getBillable());
         serviceModel.setPlacement(serviceRequestDTO.getPlacement());
         return serviceReporsitory.save(serviceModel);
+    }
+
+    public Plan updatePlan(UUID planId, PlanDTO planDTO) {
+        Plan plan = planRepository.findById(planId).orElseThrow(() -> new RuntimeException("Plan not found"));
+        plan.setPlanName(planDTO.getPlanName());
+        plan.setBillable(planDTO.getBillable());
+        plan.setMinUsagePeriod(planDTO.getMinUsagePeriod());
+        plan.setTrialPeriod(planDTO.getTrialPeriod());
+        return planRepository.save(plan);
+    }
+
+    /**
+     * Updates a variant's details based on the provided VariantDTO.
+     *
+     * @param id         the UUID of the variant to be updated
+     * @param variantDTO the DTO containing updated variant data
+     * @return the updated Variant entity
+     */
+    public Variant updateVariant(UUID id, VariantDTO variantDTO) {
+        Variant variant = variantRepository.findById(id).orElseThrow(() -> new RuntimeException("Variant not found"));
+        variant.setVariantName(variantDTO.getVariantName());
+        variant.setChargeType(variantDTO.getChargeType());
+        variant.setVariantPrice(variantDTO.getVariantPrice());
+        variant.setRatio(variantDTO.getRatio());
+        variant.setMethod(variantDTO.getMethod());
+        return variantRepository.save(variant);
+    }
+
+    /**
+     * Retrieves all services.
+     *
+     * @return a list of all ServiceModel entities
+     */
+    public List<ServiceModel> getAllServices() {
+        return serviceReporsitory.findAll();
     }
 
     /**

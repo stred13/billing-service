@@ -16,7 +16,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
+
 @Entity
+/* A class representing a metric document entity in the billing service.
+*/
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor

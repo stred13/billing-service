@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * Repository interface for MetricDocument entity
+ */
 @Repository
 public interface MetricDocumentReporitory extends JpaRepository<MetricDocument, UUID> {
 }

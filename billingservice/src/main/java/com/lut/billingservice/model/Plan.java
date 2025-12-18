@@ -36,6 +36,10 @@ public class Plan {
 
     @JsonBackReference
     @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "service_id", referencedColumnName = "id"),
+            @JoinColumn(name = "placement", referencedColumnName = "placement")
+    })
     private ServiceModel service;
 
     @JsonManagedReference

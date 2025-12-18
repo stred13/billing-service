@@ -1,14 +1,14 @@
 package com.lut.billingservice.repository;
 
-import com.lut.billingservice.model.Plan;
+import com.lut.billingservice.model.CloudProject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 /**
- * Repository interface for Plan entity operations.
+ * Repository interface for CloudProject entity
  */
 @Repository
-public interface PlanRepository extends JpaRepository<Plan, UUID> {
+public interface CloudProjectRepository extends JpaRepository<CloudProject, UUID> {
 }

@@ -1,5 +1,6 @@
 package com.lut.billingservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.lut.billingservice.enums.Placement;
 import com.lut.billingservice.enums.Status;
 import jakarta.persistence.*;
@@ -35,10 +36,11 @@ public class Organization {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @ManyToOne
-    private CloudProject cloudProject;
-
     @Column
     @Enumerated(EnumType.STRING)
     private Placement placement;
+
+    @ManyToOne
+    @JsonBackReference
+    private CloudProject cloudProject;
 }

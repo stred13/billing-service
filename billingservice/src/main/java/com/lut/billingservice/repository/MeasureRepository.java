@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * Repository interface for Measure entity
+ */
 @Repository
 public interface MeasureRepository extends JpaRepository<Measure, UUID> {
 }

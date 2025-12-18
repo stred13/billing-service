@@ -14,6 +14,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
+/*  Measure entity represents a specific measurement associated with a consumption record.
+*/
 @Entity
 @Builder
 @NoArgsConstructor

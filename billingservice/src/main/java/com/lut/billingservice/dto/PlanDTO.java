@@ -5,6 +5,9 @@ import lombok.*;
 
 import java.util.List;
 
+/**
+ * A DTO for the {@link com.lut.billingservice.model.Plan} entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

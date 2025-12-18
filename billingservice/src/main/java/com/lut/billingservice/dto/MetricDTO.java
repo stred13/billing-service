@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A DTO for the {@link com.lut.billingservice.model.Metric} entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

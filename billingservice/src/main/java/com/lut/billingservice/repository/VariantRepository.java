@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-
+/**
+ * Repository interface for Variant entity
+ */
 @Repository
 public interface VariantRepository extends JpaRepository<Variant, UUID> {
 }

@@ -11,10 +11,14 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+/**
+ * Service Entity
+ */
 
 @Data
 @Entity
 @Builder
+@IdClass(ServiceModelId.class)
 @NoArgsConstructor
 @AllArgsConstructor
 public class ServiceModel {
@@ -34,6 +38,7 @@ public class ServiceModel {
     @Column
     private Boolean billable;
 
+    @Id
     @Column
     @Enumerated(EnumType.STRING)
     private Placement placement;

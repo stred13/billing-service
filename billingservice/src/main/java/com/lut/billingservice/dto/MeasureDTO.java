@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * A DTO for the {@link com.lut.billingservice.model.Measure} entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

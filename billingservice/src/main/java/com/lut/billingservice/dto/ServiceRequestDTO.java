@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
-
+/**
+ * A DTO for the {@link com.lut.billingservice.model.PricingModel} entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

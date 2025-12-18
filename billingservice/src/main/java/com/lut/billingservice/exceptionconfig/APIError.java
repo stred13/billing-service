@@ -2,6 +2,9 @@ package com.lut.billingservice.exceptionconfig;
 
 import lombok.Data;
 
+/**
+ * A DTO for API error responses
+ */
 @Data
 public class APIError {
     private final String message;

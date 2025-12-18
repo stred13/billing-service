@@ -13,6 +13,8 @@ import java.util.UUID;
 
 @Data
 @Entity
+/* Variant Entity representing different pricing variants for a Plan
+*/
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

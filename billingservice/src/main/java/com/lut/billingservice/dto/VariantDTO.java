@@ -3,11 +3,13 @@ package com.lut.billingservice.dto;
 import com.lut.billingservice.enums.CalculationMethod;
 import com.lut.billingservice.enums.ChargeType;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.*;
 
+/**
+ * A DTO for the {@link com.lut.billingservice.model.Variant} entity
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

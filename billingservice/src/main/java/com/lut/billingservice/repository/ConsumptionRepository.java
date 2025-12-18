@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * Repository interface for Consumption entity
+ */
 @Repository
 public interface ConsumptionRepository extends JpaRepository<Consumption, UUID> {
 }
