@@ -29,4 +29,5 @@ CREATE TABLE placement_europe PARTITION OF SERVICE_MODEL
 
 CREATE TABLE placement_america PARTITION OF SERVICE_MODEL
     FOR VALUES IN ('AMERICA');
+
 <img width="233" height="156" alt="image" src="https://github.com/user-attachments/assets/23cd93e7-78ef-4b18-bd83-27e6b3cd0e9f" />
