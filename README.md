@@ -1,4 +1,4 @@
-<img width="530" height="415" alt="image" src="https://github.com/user-attachments/assets/87196775-5ea4-414d-bc3c-77fc324a9f0a" /># Billing-service
+# Billing-service
 Second part of final project of data intensive course in Master degree of Lut university
 
 ERD Diagram for database
@@ -25,16 +25,19 @@ Setup Replication:
 2. create publications
 
 	create publication config
+	</br>
    <img width="443" height="124" alt="image" src="https://github.com/user-attachments/assets/d123ed74-c966-490d-abfe-2e3cda15da4b" />
 
    select table and corresponding column for replication
+   </br>
    <img width="542" height="417" alt="image" src="https://github.com/user-attachments/assets/d91ae564-4351-4e4c-aac4-5156de92037f" />
 
-3. create subscribers
+4. create subscribers
    create subscriber config
+   </br>
    <img width="457" height="150" alt="image" src="https://github.com/user-attachments/assets/8a7d0187-70d5-450f-b3a7-db0d2b984375" />
    
    Fill in the publisher information and the replicator user to connect to the publisher.
-
+</br>
    <img width="527" height="419" alt="image" src="https://github.com/user-attachments/assets/6c72efec-62e8-41ca-87bb-3ea3a49a4bf7" />
 
