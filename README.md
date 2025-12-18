@@ -34,7 +34,7 @@ Setup Replication:
    select table and corresponding column for replication
    </br>
    <img width="542" height="417" alt="image" src="https://github.com/user-attachments/assets/d91ae564-4351-4e4c-aac4-5156de92037f" />
-
+</br>
 4. create subscribers
    create subscriber config
    </br>
@@ -42,7 +42,6 @@ Setup Replication:
    </br>
    </br>
    Fill in the publisher information and the replicator user to connect to the publisher.
-</br>
 </br>
    <img width="527" height="419" alt="image" src="https://github.com/user-attachments/assets/6c72efec-62e8-41ca-87bb-3ea3a49a4bf7" />
 
