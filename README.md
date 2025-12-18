@@ -36,6 +36,7 @@ Setup Replication:
    <img width="542" height="417" alt="image" src="https://github.com/user-attachments/assets/d91ae564-4351-4e4c-aac4-5156de92037f" />
 </br>
 4. create subscribers
+   </br>
    create subscriber config
    </br>
    <img width="457" height="150" alt="image" src="https://github.com/user-attachments/assets/8a7d0187-70d5-450f-b3a7-db0d2b984375" />
