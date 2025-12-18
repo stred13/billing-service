@@ -21,13 +21,15 @@ Setup Replication:
    <img width="530" height="415" alt="image" src="https://github.com/user-attachments/assets/191ec16d-cdc0-49d7-92b1-8b8fbc315b15" />
 	</br>
    <img width="700" height="431" alt="image" src="https://github.com/user-attachments/assets/9bc37743-4742-4a3c-80da-f2d1afb8dde4" />
-   
+   </br>
+   </br>
 
 3. create publications
-</br>
+	</br>
 	create publication config
 	</br>
    <img width="443" height="124" alt="image" src="https://github.com/user-attachments/assets/d123ed74-c966-490d-abfe-2e3cda15da4b" />
+</br>
 </br>
    select table and corresponding column for replication
    </br>
@@ -38,7 +40,9 @@ Setup Replication:
    </br>
    <img width="457" height="150" alt="image" src="https://github.com/user-attachments/assets/8a7d0187-70d5-450f-b3a7-db0d2b984375" />
    </br>
+   </br>
    Fill in the publisher information and the replicator user to connect to the publisher.
+</br>
 </br>
    <img width="527" height="419" alt="image" src="https://github.com/user-attachments/assets/6c72efec-62e8-41ca-87bb-3ea3a49a4bf7" />
 
